@@ -19,11 +19,8 @@ def build_token_to_id_vocab(sentences, specials=('<pad>', '<bos>', '<eos>', '<un
     for word in sentences:
         word = word.split()
         for item in word:
-            if item not in words and item not in specials:
-                words.append(item)
-
-    for i in range(len(words)):
-        d[words[i]] = k+i
+            if item not in d:
+                d[item] = len(d)
 
     return d
 
